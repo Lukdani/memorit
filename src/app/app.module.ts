@@ -3,10 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { GameComponent } from './components/game/game.component';
+import { GameListComponent } from './components/game-list/game-list.component';
+import { SubmitGameComponent } from './components/submit-game/submit-game.component';
+import { MemoryCardComponent } from './components/memory-card/memory-card.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GameComponent,
+    GameListComponent,
+    SubmitGameComponent,
+    MemoryCardComponent
   ],
   imports: [
     BrowserModule,
