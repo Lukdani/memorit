@@ -1,1 +1,59 @@
-<p>submit-game works!</p>
+<h2 class="text-center">Submit your game</h2>
+
+<form #f="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input
+      #title="ngModel"
+      [(ngModel)]="game.title"
+      name="title"
+      type="text"
+      class="form-control"
+      id="title"
+      placeholder="Enter a title..."
+      aria-describedby="titleHelp"
+      required
+    />
+    <div *ngIf="title.touched && title.invalid" class="alert alert-danger">
+      <div *ngIf="title.errors.required">You need to enter a title.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input
+      #description="ngModel"
+      [(ngModel)]="game.description"
+      name="description"
+      type="text"
+      class="form-control"
+      id="description"
+      placeholder="Enter a short description..."
+      required
+    />
+    <div
+      *ngIf="description.touched && description.invalid"
+      class="alert alert-danger"
+    >
+      <div *ngIf="title.errors.required">You need to enter a description.</div>
+    </div>
+  </div>
+  <label for="description">Image URL</label>
+  <input
+    #imageUrl="ngModel"
+    [(ngModel)]="game.imageUrl"
+    name="imageUrl"
+    type="text"
+    class="form-control"
+    id="imageUrl"
+    placeholder="Add an image..."
+    required
+  />
+  <div *ngIf="imageUrl.touched && imageUrl.invalid" class="alert alert-danger">
+    <div *ngIf="imageUrl.errors.required">You need to enter an image URL.</div>
+  </div>
+  <div class="text-center">
+    <button [disabled]="!f.valid" type="submit" class="btn btn-primary">
+      Submit
+    </button>
+  </div>
+</form>
